@@ -20,7 +20,7 @@ pipeline {
  			     checkout([$class: 'GitSCM', branches: [[name: '*/master']],  
  				      doGenerateSubmoduleConfigurations: false, extensions: [],  
  				      submoduleCfg: [],  
- 				      userRemoteConfigs: [[url: 'https://github.com/saranya1803/fse_project_manager_service-1.git']]]) 
+ 				      userRemoteConfigs: [[url: 'https://github.com/skprasan85/fse_project_manager_service_p']]]) 
  			     echo 'Git checkout succeeded' 
  		   } 
  	   } 
@@ -32,7 +32,7 @@ pipeline {
  	   } 
  	   stage('Publish Junit Report & Archive') { 
  		   steps { 
- 				archiveArtifacts artifacts: 'project-manager-service/target/*.jar', fingerprint: true 
+ 				archiveArtifacts artifacts: 'target/*.jar', fingerprint: true 
  				junit '**/TEST-*.xml' 
  			        step([$class: 'JacocoPublisher',  
  				      execPattern: '**/*.exec', 
